@@ -1,0 +1,161 @@
+CREATE TABLE clientes (
+  id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  nombre varchar NOT NULL,
+  razon_social varchar,
+  telefono varchar NOT NULL,
+  email varchar,
+  direccion varchar NOT NULL,
+  tipo_cliente_id integer,
+  contacto_responsable varchar,
+  creacion timestamp DEFAULT (now())
+);
+
+CREATE TABLE tipo_cliente (
+  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  nombre varchar UNIQUE NOT NULL
+);
+
+CREATE TABLE ordenes (
+  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  cliente_id integer NOT NULL,
+  fecha_creacion timestamp DEFAULT (now()),
+  fecha_programada timestamp,
+  fecha_final timestamp,
+  tecnico_id integer,
+  rubro_id integer,
+  direccion varchar NOT NULL,
+  descripcion text,
+  recomendacion text,
+  estado_id integer NOT NULL DEFAULT 1,
+  prioridad_id integer NOT NULL DEFAULT 1
+);
+
+CREATE TABLE orden_observaciones (
+  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  usuario_id integer NOT NULL,
+  orden_id integer NOT NULL,
+  comentario text,
+  fecha_creacion timestamp default now()
+);
+
+CREATE TABLE orden_rubro (
+  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  nombre varchar UNIQUE NOT NULL
+);
+
+CREATE TABLE orden_estado (
+  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  nombre varchar UNIQUE NOT NULL
+);
+
+CREATE TABLE orden_prioridad (
+  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  nombre varchar UNIQUE NOT NULL
+);
+
+CREATE TABLE orden_fotos (
+  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  usuario_id integer NOT NULL,
+  orden_id integer NOT NULL,
+  path varchar NOT NULL,
+  proceso_id integer NOT NULL,
+  fecha_subida timestamp DEFAULT (now())
+);
+
+CREATE TABLE fotos_proceso (
+  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  nombre varchar UNIQUE NOT NULL
+);
+
+CREATE TABLE orden_checklist (
+  id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  orden_id integer NOT NULL,
+  plantilla_id integer
+);
+
+CREATE TABLE checklist_plantilla (
+  id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  rubro_id integer NOT NULL,
+  nombre varchar
+);
+
+CREATE TABLE checklist_plantilla_item (
+  id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  plantilla_id integer NOT NULL,
+  nombre varchar NOT NULL,
+  orden_visual integer
+);
+
+CREATE TABLE orden_checklist_items (
+  id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  orden_checklist_id integer NOT NULL,
+  plantilla_item_id integer,
+  nombre varchar NOT NULL,
+  comentario text,
+  estado_id integer NOT NULL,
+  prioridad_id integer NOT NULL
+);
+
+CREATE TABLE checklist_estado (
+  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  nombre varchar UNIQUE NOT NULL
+);
+
+CREATE TABLE checklist_prioridad (
+  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  nombre varchar UNIQUE NOT NULL
+);
+
+CREATE TABLE usuarios (
+  id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  nombre varchar NOT NULL,
+  email varchar UNIQUE NOT NULL,
+  rol_id integer NOT NULL,
+  password_hash varchar NOT NULL,
+  fecha_creacion timestamp DEFAULT (now())
+);
+
+CREATE TABLE usuario_rol (
+  id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  nombre varchar UNIQUE NOT NULL
+);
+
+ALTER TABLE clientes ADD FOREIGN KEY (tipo_cliente_id) REFERENCES tipo_cliente (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE ordenes ADD FOREIGN KEY (cliente_id) REFERENCES clientes (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE ordenes ADD FOREIGN KEY (rubro_id) REFERENCES orden_rubro (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE ordenes ADD FOREIGN KEY (estado_id) REFERENCES orden_estado (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE ordenes ADD FOREIGN KEY (prioridad_id) REFERENCES orden_prioridad (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE orden_observaciones ADD FOREIGN KEY (orden_id) REFERENCES ordenes (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE orden_observaciones ADD FOREIGN KEY (usuario_id) REFERENCES usuarios (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE checklist_plantilla ADD FOREIGN KEY (rubro_id) REFERENCES orden_rubro (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE orden_checklist_items ADD FOREIGN KEY (estado_id) REFERENCES checklist_estado (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE orden_checklist_items ADD FOREIGN KEY (prioridad_id) REFERENCES checklist_prioridad (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE checklist_plantilla_item ADD FOREIGN KEY (plantilla_id) REFERENCES checklist_plantilla (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE orden_checklist_items ADD FOREIGN KEY (orden_checklist_id) REFERENCES orden_checklist (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE orden_checklist ADD FOREIGN KEY (orden_id) REFERENCES ordenes (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE orden_checklist ADD FOREIGN KEY (plantilla_id) REFERENCES checklist_plantilla (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE orden_checklist_items ADD FOREIGN KEY (plantilla_item_id) REFERENCES checklist_plantilla_item (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE orden_fotos ADD FOREIGN KEY (orden_id) REFERENCES ordenes (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE orden_fotos ADD FOREIGN KEY (proceso_id) REFERENCES fotos_proceso (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE ordenes ADD FOREIGN KEY (tecnico_id) REFERENCES usuarios (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE orden_fotos ADD FOREIGN KEY (usuario_id) REFERENCES usuarios (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE usuarios ADD FOREIGN KEY (rol_id) REFERENCES usuario_rol (id) DEFERRABLE INITIALLY IMMEDIATE;
