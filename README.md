@@ -50,4 +50,4 @@ Plataforma web interna diseñada para organizar y centralizar la gestión de ser
 
 ### 📄 Documentación
 
-[Ver índice](./docs/00-indice.md) para acceder a decisiones, roadmap, etc.
+[Ver índice](./docs/00-index.md) para acceder a decisiones, roadmap, etc.
