@@ -1,0 +1,150 @@
+Sistema interno para empresa de mantenimiento
+La idea es desarrollar un sistema web simple para Soluciones Integrales JR.
+No necesito que sea perfecto ni gigante desde el principio. Quiero una primera versión funcional para usar en trabajos reales.
+
+Objetivo principal:
+Tener ordenados los clientes, técnicos, órdenes de trabajo, checklists, fotos e historial de servicios realizados.
+
+1. Usuarios
+
+El sistema debería tener usuarios con permisos.
+Administrador:
+Carga clientes.
+Crea órdenes de trabajo.
+Asigna técnicos.
+Crea o edita checklists.
+Ve todos los trabajos.
+Ve el historial completo de cada cliente.
+Puede cargar observaciones internas.
+
+
+Técnico:
+Entra con su usuario.
+Ve solo las órdenes asignadas.
+Completa checklist.
+Carga fotos.
+Escribe observaciones.
+Marca tareas como realizadas.
+Finaliza la orden de trabajo.
+Por ahora no necesito usuario de cliente.
+ 
+2. Clientes
+Cada cliente debería tener una ficha con:
+Nombre o razón social.
+Teléfono.
+Email.
+Dirección.
+Tipo de cliente: particular, consorcio, comercio, empresa, local gastronómico, oficina, etc.
+Contacto responsable.
+Observaciones.
+Historial de trabajos realizados.
+Ejemplo: si trabajo varias veces, quiero entrar al cliente y ver todo lo que se hizo.
+
+3. Órdenes de trabajo
+
+Necesito crear órdenes de trabajo con:
+Número de orden automático.
+Cliente.
+Dirección del servicio.
+
+Fecha programada.
+Horario estimado.
+
+Técnico asignado.
+
+Rubro: albañilería, pintura, plomería, electricidad, refrigeración, impermeabilización, campanas, mantenimiento general.
+
+Descripción del problema o pedido.
+
+Tareas a realizar.
+Prioridad: normal, alta, urgente.
+Estado: pendiente, asignada, en curso, finalizada, observada.
+Fotos iniciales.
+Observaciones intenas
+
+4. Checklistp
+Cada orden debería poder tener un checklist.
+Ejemplos de checklist:
+Mantenimiento general
+Revisar sector indicado.
+Registrar fotos iniciales.
+Verificar estado general.
+Realizar tareas acordadas.
+Informar daños o adicionales.
+Limpiar sector intervenido.
+Cargar observaciones finales.
+Registrar fotos finales.
+Aire acondicionado
+Verificar encendido.
+Revisar filtros.
+Revisar desagüe.
+Revisar unidad interior.
+Revisar unidad exterior.
+Controlar funcionamiento general.
+Cargar recomendación.
+Impermeabilización
+Revisar grietas.
+Revisar encuentros con paredes.
+Revisar embudos/desagües.
+Registrar humedad o filtración.
+Cargar fotos.
+Indicar producto utilizado.
+Cargar recomendación final.
+Campanas / gastronomía
+Revisar campana.
+Revisar filtros.
+Revisar ductos visibles.
+Revisar extractor.
+Registrar estado de grasa.
+Cargar fotos.
+Indicar si requiere limpieza profunda.
+
+5. Historial de trabajos
+Cada trabajo finalizado tiene que quedar guardado en el historial del cliente.
+El historial debería mostrar:
+Fecha.
+Tipo de trabajo.
+Técnico que fue.
+Descripción del trabajo realizado.
+Checklist completado.
+Fotos antes/durante/después.
+Observaciones.
+Recomendaciones.
+Estado final.
+Esto es muy importante para tener trazabilidad y poder responder mejor al cliente en el futuro.
+
+6. Fotos y archivos
+El técnico debería poder subir fotos desde el celular:
+Antes.
+Durante.
+Después.
+Problemas encontrados.
+Materiales o repuestos.
+Detalles importantes.
+Más adelante se podrían sumar archivos PDF, presupuestos, planos o certificados, pero para la primera versión con fotos alcanza.
+
+7. Panel principal
+Cuando yo entre al sistema quiero ver:
+Órdenes pendientes.
+Órdenes de hoy.
+Órdenes asignadas.
+Trabajos en curso.
+Trabajos finalizados.
+Técnicos activos.
+Clientes recientes.
+Órdenes observadas o incompletas.
+
+
+Lo mínimo para que ya me sirva sería:
+1. Login de usuarios.
+2. Roles: administrador y técnico.
+3. Carga de clientes.
+4. Creación de órdenes de trabajo.
+5. Asignación de técnico.
+6. Checklist dentro de la orden.
+7. Carga de fotos.
+8. Observaciones del técnico.
+9. Estado de la orden.
+10. Historial por cliente.
+
+La idea es que ustedes me desarrollen una primera versión de un sistema real. Yo se los pagaría como trabajo. No necesito algo enorme de entrada. Necesito un sistema web simple donde yo cargue clientes, cree órdenes de trabajo, asigne técnicos, ellos completen checklist desde el celular, suban fotos y quede todo guardado en el historial del cliente. Por ahora no quiero facturación ni pagos
