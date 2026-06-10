@@ -62,42 +62,43 @@ Estado: pendiente, asignada, en curso, finalizada, observada.
 Fotos iniciales.
 Observaciones intenas
 
-4. Checklistp
+4. Checklist
 Cada orden debería poder tener un checklist.
 Ejemplos de checklist:
-Mantenimiento general
-Revisar sector indicado.
-Registrar fotos iniciales.
-Verificar estado general.
-Realizar tareas acordadas.
-Informar daños o adicionales.
-Limpiar sector intervenido.
-Cargar observaciones finales.
-Registrar fotos finales.
-Aire acondicionado
-Verificar encendido.
-Revisar filtros.
-Revisar desagüe.
-Revisar unidad interior.
-Revisar unidad exterior.
-Controlar funcionamiento general.
-Cargar recomendación.
-Impermeabilización
-Revisar grietas.
-Revisar encuentros con paredes.
-Revisar embudos/desagües.
-Registrar humedad o filtración.
-Cargar fotos.
-Indicar producto utilizado.
-Cargar recomendación final.
-Campanas / gastronomía
-Revisar campana.
-Revisar filtros.
-Revisar ductos visibles.
-Revisar extractor.
-Registrar estado de grasa.
-Cargar fotos.
-Indicar si requiere limpieza profunda.
+
+- Mantenimiento general
+    - Revisar sector indicado.
+    - Registrar fotos iniciales.
+    - Verificar estado general.
+    - Realizar tareas acordadas.
+    - Informar daños o adicionales.
+    - Limpiar sector intervenido.
+    - Cargar observaciones finales.
+    - Registrar fotos finales.
+- Aire acondicionado
+    - Verificar encendido.
+    - Revisar filtros.
+    - Revisar desagüe.
+    - Revisar unidad interior.
+    - Revisar unidad exterior.
+    - Controlar funcionamiento general.
+    - Cargar recomendación.
+- Impermeabilización
+    - Revisar grietas.
+    - Revisar encuentros con paredes.
+    - Revisar embudos/desagües.
+    - Registrar humedad o filtración.
+    - Cargar fotos.
+    - Indicar producto utilizado.
+    - Cargar recomendación final.
+- Campanas / gastronomía
+    - Revisar campana.
+    - Revisar filtros.
+    - Revisar ductos visibles.
+    - Revisar extractor.
+    - Registrar estado de grasa.
+    - Cargar fotos.
+    - Indicar si requiere limpieza profunda.
 
 5. Historial de trabajos
 Cada trabajo finalizado tiene que quedar guardado en el historial del cliente.
