@@ -1,6 +1,25 @@
 # Arquitectura
 
-## 🏗️ Stack
+## Diagrama General
+
+```mermaid
+flowchart LR
+
+A[Administrador]
+T[Técnico]
+
+A --> F
+T --> F
+
+F[React Frontend]
+
+F --> API[FastAPI Backend]
+
+API --> DB[(PostgreSQL)]
+API --> FS[Almacenamiento de Fotos]
+```
+
+## 🏗️ Ficha Técnica
 
 ### Herramientas
 
@@ -76,3 +95,9 @@
 	- Plantillas para HTML
 - Weasyprint
 	- Convertir HTML a PDF
+
+## 🗃️ Base de Datos
+
+### Diagrama
+![Diagrama de Base de Datos en PostgreSQL](./assets/diagrams/SIJR-db.svg)
+
