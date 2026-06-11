@@ -3,7 +3,7 @@ CREATE TABLE clientes (
   nombre varchar NOT NULL,
   razon_social varchar,
   telefono varchar NOT NULL,
-  email varchar,
+  email varchar UNIQUE,
   direccion varchar NOT NULL,
   tipo_cliente_id integer,
   contacto_responsable varchar,
