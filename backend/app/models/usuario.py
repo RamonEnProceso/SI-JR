@@ -19,6 +19,7 @@ class Usuario(Base):
     fecha_creacion: Mapped[datetime] = mapped_column(TIMESTAMP,server_default=func.now())
     
     rol: Mapped["UsuarioRol"] = relationship("UsuarioRol", back_populates="usuarios")
+    ordenes: Mapped[list["OrdenTecnico"]] = relationship("OrdenTecnico", back_populates="tecnico")
     
     def __repr__(self):
         return f"Usuario(id={self.id}, nombre='{self.nombre}', email='{self.email}, rol='{self.rol_id}')"
