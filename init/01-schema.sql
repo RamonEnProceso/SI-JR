@@ -164,17 +164,12 @@ ALTER TABLE orden_fotos ADD FOREIGN KEY (orden_id) REFERENCES ordenes (id) DEFER
 
 ALTER TABLE orden_fotos ADD FOREIGN KEY (proceso_id) REFERENCES fotos_proceso (id) DEFERRABLE INITIALLY IMMEDIATE;
 
-ALTER TABLE ordenes ADD FOREIGN KEY (tecnico_id) REFERENCES orden_tecnico (id) DEFERRABLE INITIALLY IMMEDIATE;
-
 ALTER TABLE orden_fotos ADD FOREIGN KEY (usuario_id) REFERENCES usuarios (id) DEFERRABLE INITIALLY IMMEDIATE;
 
 ALTER TABLE usuarios ADD FOREIGN KEY (rol_id) REFERENCES usuario_rol (id) DEFERRABLE INITIALLY IMMEDIATE;
 
 CREATE INDEX idx_ordenes_cliente_id
 ON ordenes(cliente_id);
-
-CREATE INDEX idx_ordenes_tecnico_id
-ON ordenes(tecnico_id);
 
 CREATE INDEX idx_ordenes_estado_id
 ON ordenes(estado_id);
@@ -199,3 +194,12 @@ ON orden_checklist_items(orden_checklist_id);
 
 CREATE INDEX idx_checklist_plantilla_rubro_id
 ON checklist_plantilla(rubro_id);
+
+CREATE INDEX idx_orden_tecnico_orden_id
+ON orden_tecnico(orden_id);
+
+CREATE INDEX idx_orden_tecnico_tecnico_id
+ON orden_tecnico(tecnico_id);
+
+CREATE UNIQUE INDEX uq_orden_tecnico
+ON orden_tecnico(orden_id, tecnico_id);
