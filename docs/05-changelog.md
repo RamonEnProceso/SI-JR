@@ -5,9 +5,18 @@
     - Creación de Base, Engine, Session y GetDB
     - Creación de modelos:
         - Usuario
-        - UsuarioRol
+            - UsuarioRol
+        - Cliente
+            - TipoCliente
+        - Orden
+            - OrdenEstado
+            - OrdenPrioridad
+            - OrdenRubro
+            - OrdenTecnico
 - Creación del router ```/roles```
     - Lee los roles en el Docker PostgreSQL
+- Creación de una nueva tabla SQL "Orden_Tecnico"
+    - Permite asignar varios técnicos a una orden
 
 ## v0.0.1 — 2026-06-10
 - Inicio de **documentación**
