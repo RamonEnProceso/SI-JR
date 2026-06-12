@@ -22,7 +22,6 @@ CREATE TABLE ordenes (
   fecha_creacion timestamp DEFAULT (now()),
   fecha_programada timestamp,
   fecha_final timestamp,
-  tecnico_id integer,
   rubro_id integer,
   direccion varchar NOT NULL,
   descripcion text,
@@ -121,6 +120,12 @@ CREATE TABLE usuario_rol (
   nombre varchar UNIQUE NOT NULL
 );
 
+CREATE TABLE orden_tecnico (
+    id integer GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    orden_id INTEGER NOT NULL,
+    tecnico_id INTEGER NOT NULL
+);
+
 ALTER TABLE clientes ADD FOREIGN KEY (tipo_cliente_id) REFERENCES tipo_cliente (id) DEFERRABLE INITIALLY IMMEDIATE;
 
 ALTER TABLE ordenes ADD FOREIGN KEY (cliente_id) REFERENCES clientes (id) DEFERRABLE INITIALLY IMMEDIATE;
@@ -130,6 +135,10 @@ ALTER TABLE ordenes ADD FOREIGN KEY (rubro_id) REFERENCES orden_rubro (id) DEFER
 ALTER TABLE ordenes ADD FOREIGN KEY (estado_id) REFERENCES orden_estado (id) DEFERRABLE INITIALLY IMMEDIATE;
 
 ALTER TABLE ordenes ADD FOREIGN KEY (prioridad_id) REFERENCES orden_prioridad (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE orden_tecnico ADD FOREIGN KEY (orden_id) REFERENCES ordenes (id) DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE orden_tecnico ADD FOREIGN KEY (tecnico_id) REFERENCES usuarios (id) DEFERRABLE INITIALLY IMMEDIATE;
 
 ALTER TABLE orden_observaciones ADD FOREIGN KEY (orden_id) REFERENCES ordenes (id) DEFERRABLE INITIALLY IMMEDIATE;
 
@@ -155,7 +164,7 @@ ALTER TABLE orden_fotos ADD FOREIGN KEY (orden_id) REFERENCES ordenes (id) DEFER
 
 ALTER TABLE orden_fotos ADD FOREIGN KEY (proceso_id) REFERENCES fotos_proceso (id) DEFERRABLE INITIALLY IMMEDIATE;
 
-ALTER TABLE ordenes ADD FOREIGN KEY (tecnico_id) REFERENCES usuarios (id) DEFERRABLE INITIALLY IMMEDIATE;
+ALTER TABLE ordenes ADD FOREIGN KEY (tecnico_id) REFERENCES orden_tecnico (id) DEFERRABLE INITIALLY IMMEDIATE;
 
 ALTER TABLE orden_fotos ADD FOREIGN KEY (usuario_id) REFERENCES usuarios (id) DEFERRABLE INITIALLY IMMEDIATE;
 
