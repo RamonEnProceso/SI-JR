@@ -1,7 +1,7 @@
 from sqlalchemy import select
 from sqlalchemy.orm import Session
-from app.models.usuario_rol import UsuarioRol
+from app.models.orden_rubro import OrdenRubro
 
-def get_roles(db: Session):
-    stmt = select(UsuarioRol)
+def get_rubros(db: Session):
+    stmt = select(OrdenRubro)
     return db.execute(stmt).scalars().all()
