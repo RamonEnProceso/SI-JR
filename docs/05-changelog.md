@@ -14,6 +14,7 @@
 			- ChecklistPrioridad
 - Cargar modelos en `/models/__init__` para evitar redundancias
 - Actualizar CRUD para cargar desde `/models/__init__`
+- Actualizar diagrama SQL
 				
 
 ## v0.0.2 — 2026-06-11
@@ -35,9 +36,9 @@
     - Permite asignar varios técnicos a una orden
 
 ## v0.0.1 — 2026-06-10
-- Inicio de **documentación**
-- Inicio del **servidor en FastAPI**
-- Creación de **Base de Datos en PostgreSQL**
+- Inicio de documentación
+- Inicio del servidor en FastAPI
+- Creación de Base de Datos en PostgreSQL
     - Creación de tablas
     - Asignación de "Estados" y "Prioridades"
     - Creación de plantillas base para ordenes
