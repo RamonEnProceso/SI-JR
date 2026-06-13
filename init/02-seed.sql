@@ -60,8 +60,7 @@ VALUES
 INSERT INTO usuario_rol (nombre)
 VALUES
   ('Admin'),
-  ('Tecnico'),
-  ('Cliente');
+  ('Tecnico');
 
 INSERT INTO checklist_plantilla (id, rubro_id, nombre)
 VALUES
