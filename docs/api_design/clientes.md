@@ -1,5 +1,4 @@
 # Clientes
----
 
 ## POST /clientes
 
