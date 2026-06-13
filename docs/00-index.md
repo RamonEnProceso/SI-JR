@@ -5,3 +5,4 @@
 - [Arquitectura](./03-architecture.md)
 - [Ruta del Proyecto](./04-roadmap.md)
 - [Actualizaciones](./05-changelog.md)
+- [Diseño de API](./06-api.md)
