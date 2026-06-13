@@ -6,7 +6,7 @@
   - [Herramientas](#herramientas)
   - [Lenguajes](#lenguajes)
 - [Backend](#backend-python)
-  - [Librerías](#librerías)
+  - [Dependencias](#dependencias)
 
 ## Diagrama General
 
