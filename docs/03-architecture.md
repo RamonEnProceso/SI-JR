@@ -1,5 +1,13 @@
 # Arquitectura
 
+## Índice
+- [Diagrama General](#diagrama-general)
+- [Ficha Ténica](#️-ficha-técnica)
+  - [Herramientas](#herramientas)
+  - [Lenguajes](#lenguajes)
+- [Backend](#backend-python)
+  - [Librerías](#librerías)
+
 ## Diagrama General
 
 ```mermaid
@@ -60,11 +68,28 @@ API --> FS[Almacenamiento de Fotos]
   </tr>
 </table>
 
-### Librerías
+## Backend (Python)
 
-#### Backend (Python)
+### Estructura
 
-##### Base
+```
+backend/
+├── app/
+│   ├── crud/           # Interacción con Base de datos
+│   ├── db/             # Conexión con Base de datos
+│   ├── models/         # Modelos SQLAlchemy
+│   ├── routers/        # Routers de entrada y salida de datos
+│   ├── schemas/        # Esquemas Pydantic
+│   ├── services/       # Conexión con Microservicios
+│   └── main.py         # Inicio del servidor FastAPI
+└── requirements.txt    # Dependencias (fastapi, sqlalchemy, etc.)
+```
+
+### Dependencias
+
+> *Se instalan con el "requeriments.txt" en la terminal*
+>`pip install -r requirements.txt`
+
 - FastAPI
 	- Backend
 - Uvicorn
@@ -72,7 +97,7 @@ API --> FS[Almacenamiento de Fotos]
 - Psycopg
 	- Adaptador PostgreSQL
 - Sqlalchemy
-	- Para interactuar con el SQL
+	- Interactuar con el SQL con POO
 - Pydantic
 	- Validación de información entre front y back
 - Python-dotnenv
@@ -96,7 +121,7 @@ API --> FS[Almacenamiento de Fotos]
 - Weasyprint
 	- Convertir HTML a PDF
 
-## 🗃️ Base de Datos
+## Base de Datos
 
 ### Diagrama
 ![Diagrama de Base de Datos en PostgreSQL](./assets/diagrams/SIJR-db.svg)
