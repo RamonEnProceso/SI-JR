@@ -33,6 +33,9 @@ class Orden(Base):
     rubro: Mapped["OrdenRubro"] = relationship("OrdenRubro", back_populates="ordenes")
     estado: Mapped["OrdenEstado"] = relationship("OrdenEstado", back_populates="ordenes")
     prioridad: Mapped["OrdenPrioridad"] = relationship("OrdenPrioridad", back_populates="ordenes")
+    checklist: Mapped["OrdenChecklist"] = relationship("OrdenChecklist", back_populates="orden")
+    fotos: Mapped[list["OrdenFoto"]] = relationship("OrdenFoto", back_populates="orden")
+    observaciones_detalladas: Mapped[list["OrdenObservacion"]] = relationship("OrdenObservacion", back_populates="orden")
     
     def __repr__(self):
         return f"Orden(id={self.id}, creacion='{self.fecha_creacion}', direccion='{self.direccion}')"

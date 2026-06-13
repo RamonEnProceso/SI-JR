@@ -16,4 +16,4 @@ class OrdenTecnico(Base):
     tecnico: Mapped["Usuario"] = relationship("Usuario", back_populates="ordenes")
     
     def __repr__(self):
-        return f"OrdenTecnico(id={self.id}, orden='{self.orden_id}')"
+        return f"OrdenTecnico(id={self.id}, orden_id={self.orden_id}, tecnico_id={self.tecnico_id})"

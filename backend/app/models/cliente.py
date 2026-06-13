@@ -27,4 +27,4 @@ class Cliente(Base):
     ordenes: Mapped[list["Orden"]] = relationship("Orden", back_populates="cliente")
     
     def __repr__(self):
-        return f"Cliente(id={self.id}, nombre='{self.nombre}', telefono='{self.telefono}', email='{self.email}', tipo='{self.tipo_cliente_id}')"
+        return f"Cliente(id={self.id}, nombre='{self.nombre}', email='{self.email}', tipo_cliente_id={self.tipo_cliente_id})"

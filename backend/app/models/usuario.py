@@ -20,8 +20,8 @@ class Usuario(Base):
     
     rol: Mapped["UsuarioRol"] = relationship("UsuarioRol", back_populates="usuarios")
     ordenes: Mapped[list["OrdenTecnico"]] = relationship("OrdenTecnico", back_populates="tecnico")
+    fotos: Mapped[list["OrdenFoto"]] = relationship("OrdenFoto", back_populates="tecnico")
+    observaciones: Mapped[list["OrdenObservacion"]] = relationship("OrdenObservacion", back_populates="tecnico")
     
     def __repr__(self):
-        return f"Usuario(id={self.id}, nombre='{self.nombre}', email='{self.email}, rol='{self.rol_id}')"
-
-
+        return f"Usuario(id={self.id}, nombre='{self.nombre}', email='{self.email}', rol_id={self.rol_id})"
