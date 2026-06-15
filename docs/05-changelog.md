@@ -18,7 +18,14 @@
         - GetOrdenes
         - UpdateOrden
         - DeleteOrden
-- Creación de los routers `/clientes` y `/ordenes`
+    - Usuario
+        - CreateUsuario
+        - GetUsuario
+        - GetUsuarios
+        - UpdateUsuario
+        - DeleteUsuario
+- Creación de los routers `/clientes`, `/ordenes` y `/usuarios`
+- Creación de `/core` y añadir hashing para contraseñas con Passlib
 - Actualizar documentación FastAPI de routers `/roles`, `/rubros` y `/tipos_cliente`
 
 ## v0.0.3 — 2026-06-12
