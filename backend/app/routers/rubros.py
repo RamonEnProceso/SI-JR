@@ -3,8 +3,11 @@ from sqlalchemy.orm import Session
 from app.db.dependencies import get_db
 from app.crud.get_rubros import get_rubros
 
-router = APIRouter()
+router = APIRouter(
+    prefix="/rubros",
+    tags=["Rubros"]
+    )
 
-@router.get("/rubros")
+@router.get("/")
 def get_rubros_route(db: Session = Depends(get_db)):
     return get_rubros(db)

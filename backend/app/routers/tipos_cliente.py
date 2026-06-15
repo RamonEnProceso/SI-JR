@@ -3,9 +3,12 @@ from sqlalchemy.orm import Session
 from app.db.dependencies import get_db
 from app.crud.get_tipos_cliente import get_tipo_clientes
 
-router = APIRouter()
+router = APIRouter(
+    prefix="/tipos_cliente",
+    tags=["Tipos de Cliente"]
+    )
 
-@router.get("/tipos_cliente")
+@router.get("/")
 def get_tipo_clientes_route(db: Session = Depends(get_db)):
     
     return get_tipo_clientes(db)
