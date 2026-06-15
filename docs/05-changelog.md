@@ -12,12 +12,14 @@
         - GetClientes
         - UpdateCliente
         - DeleteCliente
-- Creación de router Cliente
-    - Get Clientes
-    - Get Cliente
-    - Create Cliente
-    - Update Cliente
-    - Delete Cliente
+    - Orden
+        - CreateOrden
+        - GetOrden
+        - GetOrdenes
+        - UpdateOrden
+        - DeleteOrden
+- Creación de los routers `/clientes` y `/ordenes`
+- Actualizar documentación FastAPI de routers `/roles`, `/rubros` y `/tipos_cliente`
 
 ## v0.0.3 — 2026-06-12
 - Terminar Modelado (de la base de datos) en SQLAlchemy
