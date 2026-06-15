@@ -20,8 +20,6 @@ class Orden(Base):
     direccion: Mapped[str] = mapped_column(String, nullable=False)
     descripcion: Mapped[str] = mapped_column(String)
     recomendacion: Mapped[str] = mapped_column(String)
-    contacto_responsable: Mapped[str] = mapped_column(String)
-    observaciones: Mapped[str] = mapped_column(String)
     
     cliente_id: Mapped[int] = mapped_column(ForeignKey("clientes.id"))
     rubro_id: Mapped[int] = mapped_column(ForeignKey("orden_rubro.id"))
