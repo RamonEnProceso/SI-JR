@@ -1,4 +1,4 @@
-# Changelog
+# Historial de Cambios
 
 ## v0.0.4 - 2026-06-15
 - Creación de estructuras Pydantic para el envío y recibo de datos
@@ -12,7 +12,12 @@
         - GetClientes
         - UpdateCliente
         - DeleteCliente
-
+- Creación de router Cliente
+    - Get Clientes
+    - Get Cliente
+    - Create Cliente
+    - Update Cliente
+    - Delete Cliente
 
 ## v0.0.3 — 2026-06-12
 - Terminar Modelado (de la base de datos) en SQLAlchemy
