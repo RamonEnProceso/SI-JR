@@ -1,5 +1,19 @@
 # Changelog
 
+## v0.0.4 - 2026-06-15
+- Creación de estructuras Pydantic para el envío y recibo de datos
+    - Cliente
+    - Orden
+    - Usuario
+- Creación de CRUDs usando SQLAlchemy
+    - Cliente
+        - CreateCliente
+        - GetCliente
+        - GetClientes
+        - UpdateCliente
+        - DeleteCliente
+
+
 ## v0.0.3 — 2026-06-12
 - Terminar Modelado (de la base de datos) en SQLAlchemy
     - Creación de modelos:
