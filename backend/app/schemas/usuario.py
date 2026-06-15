@@ -10,7 +10,6 @@ class UsuarioCreate(BaseModel):
 class UsuarioUpdate(BaseModel):
     nombre: str | None = None
     email: str | None = None
-    rol_id: int | None = None
     password: str | None = None
     
 class UsuarioResponse(BaseModel):
