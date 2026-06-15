@@ -4,7 +4,7 @@ from datetime import datetime
 class OrdenCreate(BaseModel):
     cliente_id: int
     fecha_programada: datetime | None = None
-    rubro_id: int
+    rubro_id: int = 1
     direccion: str 
     descripcion: str | None = None
     recomendacion: str | None = None
