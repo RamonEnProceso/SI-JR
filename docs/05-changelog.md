@@ -1,5 +1,27 @@
 # Historial de Cambios
 
+## v0.0.5 - 2026-06-16
+- Creación de estructuras Pydantic para el envío y recibo de datos
+    - OrdenTecnico
+- Creación de CRUDs usando SQLAlchemy
+    - OrdenTecnico
+        - Create OrdenTecnico
+        - Update OrdenTecnico
+        - Delete OrdenTecnico
+        - Get Tecnicos from Orden
+- Actualización de CRUDs de SQLAlchemy
+     - Orden
+        - Get Tecnicos
+        - Get Cliente
+        - Get from Estado
+        - Get from Prioridad
+    - Usuario
+        - Get Ordenes
+    - Cliente
+        - Get Ordenes
+- Creación del router `/orden_tecnico` junto con documentación en FastAPI
+- Creación de los routers `/ordenes/estado`y `/ordenes/prioridad`
+
 ## v0.0.4 - 2026-06-15
 - Creación de estructuras Pydantic para el envío y recibo de datos
     - Cliente
