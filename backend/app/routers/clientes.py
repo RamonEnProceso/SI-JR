@@ -1,8 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.db.dependencies import get_db
-from app.crud.cliente import create_cliente,update_cliente,get_cliente,get_clientes,delete_cliente
+from app.crud.cliente import create_cliente,update_cliente,get_cliente,get_clientes,delete_cliente, get_ordenes
 from app.schemas.cliente import ClienteCreate, ClienteUpdate, ClienteResponse
+from app.schemas.orden import OrdenResponse
 
 router = APIRouter(
     prefix="/clientes",
@@ -67,3 +68,13 @@ def delete_cliente_route(
         )
     
     return {"message": f"Cliente {cliente_id} eliminado"}
+
+
+
+@router.get("/{cliente_id}/ordenes", response_model=list[OrdenResponse])
+def get_ordenes_route(
+    cliente_id : int,
+    db: Session = Depends(get_db)
+    ):
+    
+    return get_ordenes(db, cliente_id)

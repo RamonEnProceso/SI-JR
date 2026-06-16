@@ -1,8 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.db.dependencies import get_db
-from app.crud.usuarios import get_usuario, get_usuarios, create_usuario, delete_usuario, update_usuario
+from app.crud.usuarios import get_usuario, get_usuarios, create_usuario, delete_usuario, update_usuario, get_ordenes
 from app.schemas.usuario import UsuarioCreate, UsuarioResponse, UsuarioUpdate
+from app.schemas.orden import OrdenResponse
 
 router = APIRouter(
     prefix="/usuarios",
@@ -67,3 +68,11 @@ def delete_usuario_route(
         )
     
     return {"message": f"Usuario {usuario_id} eliminado"}
+
+@router.get("/{usuario_id}/ordenes", response_model=list[OrdenResponse])
+def get_usuario_ordenes_route(
+    usuario_id : int,
+    db: Session = Depends(get_db)
+    ):
+    
+    return get_ordenes(db, usuario_id)

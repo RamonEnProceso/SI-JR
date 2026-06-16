@@ -1,8 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from app.db.dependencies import get_db
-from app.crud.ordenes import create_orden, get_orden, get_ordenes, update_orden, delete_orden
+from app.crud.ordenes import create_orden, get_orden, get_ordenes, update_orden, delete_orden, get_from_estado, get_from_prioridad, get_cliente, get_tecnicos
 from app.schemas.orden import OrdenCreate, OrdenResponse, OrdenUpdate
+from app.schemas.usuario import UsuarioResponse
+from app.schemas.cliente import ClienteResponse
 
 router = APIRouter(
     prefix="/ordenes",
@@ -67,3 +69,37 @@ def delete_orden_route(
         )
     
     return {"message": f"Orden {orden_id} eliminada"}
+
+
+
+
+@router.get("/prioridad/{prioridad_id}", response_model=list[OrdenResponse])
+def get_from_prioridad_route(
+    prioridad_id:int, 
+    db: Session = Depends(get_db)
+    ):
+    return get_from_prioridad(db,prioridad_id)
+
+@router.get("/estado/{estado_id}", response_model=list[OrdenResponse])
+def get_from_estado_route(
+    estado_id:int, 
+    db: Session = Depends(get_db)
+    ):
+    return get_from_estado(db,estado_id)
+
+
+
+
+@router.get("/{orden_id}/tecnicos", response_model=list[UsuarioResponse])
+def get_tecnicos_route(
+    orden_id : int,
+    db: Session = Depends(get_db)
+    ):
+    return get_tecnicos(db, orden_id)
+
+@router.get("/{orden_id}/cliente", response_model=ClienteResponse)
+def get_cliente_route(
+    orden_id : int,
+    db: Session = Depends(get_db)
+    ):
+    return get_cliente(db, orden_id)
