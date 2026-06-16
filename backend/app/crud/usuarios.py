@@ -50,3 +50,12 @@ def delete_usuario (db: Session, usuario_id:int):
     db.delete(usuario)
     db.commit()
     return True
+
+def get_ordenes (db: Session, usuario_id:int):
+
+    usuario = db.get(Usuario, usuario_id)
+    
+    if usuario is None:
+        return None
+    
+    return [ot.orden for ot in usuario.ordenes]
