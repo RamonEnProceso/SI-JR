@@ -1,6 +1,6 @@
 from sqlalchemy import select
 from sqlalchemy.orm import Session
-from app.models import Orden
+from app.models import Orden, OrdenPrioridad, OrdenEstado
 from app.schemas.orden import OrdenCreate,OrdenUpdate
 
 def create_orden(db: Session, ordenload: OrdenCreate):
@@ -50,3 +50,31 @@ def delete_orden (db: Session, orden_id:int):
     db.delete(orden)
     db.commit()
     return True
+
+def get_from_prioridad (db: Session, prioridad_id:int):
+    prioridad = db.get(OrdenPrioridad, prioridad_id)
+    if prioridad is None:
+        return None
+    
+    return prioridad.ordenes
+
+def get_from_estado (db: Session, estado_id:int):
+    estado = db.get(OrdenEstado, estado_id)
+    if estado is None:
+        return None
+    
+    return estado.ordenes
+
+def get_tecnicos(db: Session, orden_id:int):
+    orden = db.get(Orden, orden_id)
+    if orden is None:
+        return None
+    
+    return [ot.tecnico for ot in orden.tecnicos]
+
+def get_cliente(db: Session, orden_id:int):
+    orden = db.get(Orden, orden_id)
+    if orden is None:
+        return None
+    
+    return orden.cliente
