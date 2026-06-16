@@ -51,3 +51,10 @@ def delete_cliente (db: Session, cliente_id:int):
     db.delete(cliente)
     db.commit()
     return True
+
+def get_ordenes(db: Session, cliente_id: int):
+    cliente = db.get(Cliente, cliente_id)
+    if cliente is None:
+        return None
+
+    return cliente.ordenes
